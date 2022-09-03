@@ -8,7 +8,7 @@
 
 ## DOM树
 
-![1655875759072](C:\Users\86158\AppData\Roaming\Typora\typora-user-images\1655875759072.png)
+![1655875759072](https://aruiblogimages.oss-cn-hangzhou.aliyuncs.com/img/1655875759072.png)
 
 ## getElementById根据ID获取元素
 
@@ -61,3 +61,4 @@ var li = document.querySelector('li')
 ## innerText（非标准）和innerHTML（标准）的区别
 
 ### innerText不识别html标签，去除空格换行，innerHTML识别，保留空格和换行
+
