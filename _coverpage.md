@@ -1,4 +1,4 @@
-![logo](images/1.jpg)
+![logo](https://docsify.js.org/_media/icon.svg)
 
 # Arui的前端学习
 

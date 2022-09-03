@@ -10,7 +10,7 @@
     * Linux与Git
         * [基本的linux命令学习与Git](Linux%E4%B8%8EGit/%E5%9F%BA%E6%9C%AC%E7%9A%84Linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E4%B8%8EGit.md)
     * javascript
-        * [DOM以及BOM](js/DOM%20%E4%BB%A5%E5%8F%8ABOM.md)
-        * [js基础语法](js/js%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.md)
+        * [DOM以及BOM](javascript/DOM%20%E4%BB%A5%E5%8F%8ABOM.md)
+        * [js基础语法](javascript/js%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.md)
     * CSS
-        * [css学习](css/CSS%E5%AD%A6%E4%B9%A0.md)
+        * [css学习](CSS/CSS%E5%AD%A6%E4%B9%A0.md)
