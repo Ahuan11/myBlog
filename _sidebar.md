@@ -14,3 +14,7 @@
         * [js基础语法](javascript/js%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.md)
     * CSS
         * [css学习](css/CSS%E5%AD%A6%E4%B9%A0.md)
+    * Typescript
+        * [初识Typescript](TypeScript/%E5%88%9D%E8%AF%86Typescript.md)
+        * [Typescript常用语法](TypeScript/Typescript%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95.md)
+        
