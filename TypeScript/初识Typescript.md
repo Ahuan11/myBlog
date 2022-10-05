@@ -1,4 +1,4 @@
-# 一、初识TS
+# 一、初识TypeScript
 
 ## TypeScript的介绍
 

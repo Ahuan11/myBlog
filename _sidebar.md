@@ -4,6 +4,8 @@
     * Vue2
         * [Vue2基础知识](Vue2/Vue2%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
     * Vue3
+        * [Vue3快速上手](Vue3/Vue3%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B.md)
+        * [Composition-API(常用部分)](Vue3/Composition%20API.md)
         * [Vue3基础知识](Vue3/Vue3%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
     * 项目实战
         * [尚品汇](%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/%E5%B0%9A%E5%93%81%E6%B1%87.md)
