@@ -4,12 +4,12 @@
 
  https://composition-api.vuejs.org/zh/api.html
 
-##  1)setup
+##  setup
 
 - 新的option, 所有的组合API函数都在此使用, 只在初始化时执行一次
 - 函数如果返回对象, 对象中的属性或方法, 模板中可以直接使用
 
-##  2)ref
+##  ref
 
 - 作用: 定义一个数据的响应式
 - 语法: const xxx = ref(initValue):
@@ -65,7 +65,7 @@ export default {
 </script>
 ```
 
-##  3)reactive
+##  reactive
 
 - 作用: 定义多个数据的响应式
 - const proxy = reactive(obj): 接收一个普通对象然后返回该普通对象的响应式代理器对象
@@ -123,9 +123,9 @@ export default {
 </script>
 ```
 
-##  4)比较Vue2与Vue3的响应式(重要)
+##  比较Vue2与Vue3的响应式(重要)
 
-## 5)vue2的响应式
+### vue2的响应式
 
 - 核心:
   - 对象: 通过defineProperty对对象的已有属性值的读取和修改进行劫持(监视/拦截)
@@ -142,7 +142,7 @@ Object.defineProperty(data, 'count', {
   - 对象直接新添加的属性或删除已有属性, 界面不会自动更新
   - 直接通过下标替换元素或更新length, 界面不会自动更新 arr[1] = {}
 
-## 6)Vue3的响应式
+### Vue3的响应式
 
 - 核心:
   - 通过Proxy(代理): 拦截对data任意属性的任意(13种)操作, 包括属性值的读写, 属性的添加, 属性的删除等...
@@ -222,7 +222,104 @@ proxy.name = 'tom'
 </html>
 ```
 
-## 7) setup细节
+## vue2的响应式
+
+- 核心:
+  - 对象: 通过defineProperty对对象的已有属性值的读取和修改进行劫持(监视/拦截)
+  - 数组: 通过重写数组更新数组一系列更新元素的方法来实现元素修改的劫持
+
+```js
+Object.defineProperty(data, 'count', {
+    get () {}, 
+    set () {}
+})
+```
+
+- 问题
+  - 对象直接新添加的属性或删除已有属性, 界面不会自动更新
+  - 直接通过下标替换元素或更新length, 界面不会自动更新 arr[1] = {}
+
+## Vue3的响应式
+
+- 核心:
+  - 通过Proxy(代理): 拦截对data任意属性的任意(13种)操作, 包括属性值的读写, 属性的添加, 属性的删除等...
+  - 通过 Reflect(反射): 动态对被代理对象的相应属性进行特定的操作
+  - 文档:
+    - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+    - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+
+```js
+new Proxy(data, {
+	// 拦截读取属性值
+    get (target, prop) {
+    	return Reflect.get(target, prop)
+    },
+    // 拦截设置属性值或添加新属性
+    set (target, prop, value) {
+    	return Reflect.set(target, prop, value)
+    },
+    // 拦截删除属性
+    deleteProperty (target, prop) {
+    	return Reflect.deleteProperty(target, prop)
+    }
+})
+
+proxy.name = 'tom'   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy 与 Reflect</title>
+</head>
+<body>
+  <script>
+    
+    const user = {
+      name: "John",
+      age: 12
+    };
+
+    /* 
+    proxyUser是代理对象, user是被代理对象
+    后面所有的操作都是通过代理对象来操作被代理对象内部属性
+    */
+    const proxyUser = new Proxy(user, {
+
+      get(target, prop) {
+        console.log('劫持get()', prop)
+        return Reflect.get(target, prop)
+      },
+
+      set(target, prop, val) {
+        console.log('劫持set()', prop, val)
+        return Reflect.set(target, prop, val); // (2)
+      },
+
+      deleteProperty (target, prop) {
+        console.log('劫持delete属性', prop)
+        return Reflect.deleteProperty(target, prop)
+      }
+    });
+    // 读取属性值
+    console.log(proxyUser===user)
+    console.log(proxyUser.name, proxyUser.age)
+    // 设置属性值
+    proxyUser.name = 'bob'
+    proxyUser.age = 13
+    console.log(user)
+    // 添加属性
+    proxyUser.sex = '男'
+    console.log(user)
+    // 删除属性
+    delete proxyUser.sex
+    console.log(user)
+  </script>
+</body>
+</html>
+```
+
+##  setup细节
 
 - setup执行的时机
   - 在beforeCreate之前执行(一次), 此时组件对象还没有创建
@@ -355,7 +452,7 @@ export default defineComponent({
 </script>
 ```
 
-## 8) reactive与ref-细节
+##  reactive与ref-细节
 
 - 是Vue3的 composition API中2个最重要的响应式API
 - ref用来处理基本类型数据, reactive用来处理对象(递归深度响应式)
@@ -411,7 +508,7 @@ export default {
 </script>
 ```
 
-##  9) 计算属性与监视
+##   计算属性与监视
 
 - computed函数:
   - 与computed配置功能一致
@@ -549,7 +646,7 @@ export default {
 </script>
 ```
 
-## 10) 生命周期
+##  生命周期
 
 **vue2.x的生命周期**
 
@@ -695,7 +792,7 @@ export default {
 </script>
 ```
 
-## 11) 自定义hook函数
+##  自定义hook函数
 
 - 使用Vue3的组合API封装的可复用的功能函数
 
@@ -863,7 +960,7 @@ export default {
 </script>
 ```
 
-## 12) toRefs
+## toRefs
 
 > 需求：要将reactive对象中的所有属性解构出来，在html模板中单独使用
 
@@ -938,7 +1035,7 @@ function useReatureX() {
 </script>
 ```
 
-## 11) ref获取元素
+## ref获取元素
 
 利用ref函数获取组件中的标签元素
 
@@ -975,7 +1072,7 @@ export default {
 
 # 2. Composition API(其它部分)
 
-## 1) shallowReactive 与 shallowRef
+##  shallowReactive 与 shallowRef
 
 - shallowReactive : 只处理了对象内最外层属性的响应式(也就是浅响应式)
 - shallowRef: 只处理了value的响应式, 不进行对象的reactive处理
@@ -1040,7 +1137,7 @@ export default {
 </script>
 ```
 
-## 2) readonly 与 shallowReadonly
+## readonly 与 shallowReadonly
 
 - readonly:
   - 深度只读数据
@@ -1102,7 +1199,7 @@ export default {
 </script>
 ```
 
-## 3) toRaw 与 markRaw
+## toRaw 与 markRaw
 
 - toRaw
   - 返回由 `reactive` 或 `readonly` 方法转换成响应式代理的普通对象。
@@ -1160,7 +1257,7 @@ export default {
 </script>
 ```
 
-## 4) toRef
+## toRef
 
 - 为源响应式对象上的某个属性创建一个 ref对象, 二者内部操作的是同一个数据值, 更新时二者是同步的
 - 区别ref: 拷贝了一份新的数据值单独操作, 更新时相互不影响
@@ -1260,7 +1357,7 @@ export default component
 </script>
 ```
 
-## 5) customRef
+## customRef
 
 - 创建一个自定义的 ref，并对其依赖项跟踪和更新触发进行显式控制
 - 需求: 使用 customRef 实现 debounce 的示例
@@ -1324,7 +1421,7 @@ function useDebouncedRef<T>(value: T, delay = 200) {
 </script>
 ```
 
-## 6) provide 与 inject
+## provide 与 inject
 
 - provide`和`inject`提供依赖注入，功能类似 2.x 的`provide/inject
 - 实现跨层级组件(祖孙)间通信
@@ -1401,7 +1498,7 @@ export default {
 </script>
 ```
 
-## 7) 响应式数据的判断
+## 响应式数据的判断
 
 - isRef: 检查一个值是否为一个 ref 对象
 - isReactive: 检查一个对象是否是由 `reactive` 创建的响应式代理
@@ -1410,7 +1507,7 @@ export default {
 
 # 3. 手写组合API
 
-## 1) shallowReactive 与 reactive
+## shallowReactive 与 reactive
 
 ```js
 const reactiveHandler = {
@@ -1488,7 +1585,7 @@ proxy.b[0].x += 1
 proxy.c.x[0] += 1
 ```
 
-## 2) shallowRef 与 ref
+## shallowRef 与 ref
 
 ```js
 /*
@@ -1553,7 +1650,7 @@ ref2.value.b[0].x++
 console.log(ref1, ref2)
 ```
 
-## 3) shallowReadonly 与 readonly
+## shallowReadonly 与 readonly
 
 ```js
 const readonlyHandler = {
@@ -1622,7 +1719,7 @@ objReadOnly2.a = 1
 objReadOnly2.a.b = 2
 ```
 
-## 4) isRef, isReactive 与 isReadonly
+## isRef, isReactive 与 isReadonly
 
 ```js
 /* 
@@ -1664,7 +1761,7 @@ console.log(isProxy(readonly({})))
 
 # 4. Composition API VS Option API
 
-## 1) Option API的问题
+## Option API的问题
 
 - 在传统的Vue OptionsAPI中，新增或者修改一个需求，就需要分别在data，methods，computed里修改 ，滚动条反复上下移动
 
@@ -1672,7 +1769,7 @@ console.log(isProxy(readonly({})))
 
 ![img](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5ac7e20d1784887a826f6360768a368~tplv-k3u1fbpfcp-watermark.image)
 
-## 2) 使用Compisition API
+## 使用Compisition API
 
 我们可以更加优雅的组织我们的代码，函数。让相关功能的代码更加有序的组织在一起
 

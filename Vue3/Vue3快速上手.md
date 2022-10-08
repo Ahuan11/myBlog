@@ -1,13 +1,13 @@
 # 1. 认识Vue3
 
-## [#](https://24kcs.github.io/vue3_study/chapter3/01_认识Vue3.html#_1-了解相关信息)1) 了解相关信息
+## 了解相关信息
 
 - Vue.js 3.0 "One Piece" 正式版在今年9月份发布
 - 2年多开发, 100+位贡献者, 2600+次提交, 600+次PR
 - **Vue3支持vue2的大多数特性**
 - **更好的支持Typescript**
 
-## [#](https://24kcs.github.io/vue3_study/chapter3/01_认识Vue3.html#_2-性能提升)2) 性能提升:
+## 性能提升:
 
 - 打包大小减少41%
 - 初次渲染快55%, 更新渲染快133%
@@ -15,7 +15,7 @@
 - **使用Proxy代替defineProperty实现数据响应式**
 - **重写虚拟DOM的实现和Tree-Shaking**
 
-## [#](https://24kcs.github.io/vue3_study/chapter3/01_认识Vue3.html#_3-新增特性)3) 新增特性
+## 新增特性
 
 - **Composition (组合) API**
 - setup
@@ -35,7 +35,7 @@
 
 # 2. 创建vue3项目
 
-## [#](https://24kcs.github.io/vue3_study/chapter3/02_创建vue3项目.html#_1-使用-vue-cli-创建)1) 使用 vue-cli 创建
+## 使用 vue-cli 创建
 
 文档: https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create
 
@@ -62,7 +62,7 @@ vue create my-project
 - Where do you prefer placing config for Babel, ESLint, etc.? - 直接回车
 - Save this as a preset for future projects? - 直接回车
 
-## [#](https://24kcs.github.io/vue3_study/chapter3/02_创建vue3项目.html#_2-使用-vite-创建)2) 使用 vite 创建
+## 使用 vite 创建
 
 - 文档: https://v3.cn.vuejs.org/guide/installation.html
 - vite 是一个由原生 ESM 驱动的 Web 开发构建工具。在开发环境下基于浏览器原生 ES imports 开发，

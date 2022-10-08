@@ -1,4 +1,4 @@
-# 一、初识TypeScript
+# 1.初识TypeScript
 
 ## TypeScript的介绍
 
@@ -34,7 +34,7 @@ TypeScript主要有3大特点：
 
 TypeScript在社区的流行度越来越高，他非常适用于一些大型项目，也非常适用于一些基础库，极大地帮助我们提升了开发效率和体验
 
-# 二、安装TypeScript
+# 2.安装TypeScript
 
 命令行运行如下命令，全局安装TypeScript：
 
@@ -48,7 +48,7 @@ npm install -g typescript
 tsc -v
 ```
 
-# 三、第一个TypeScript程序
+# 3.第一个TypeScript程序
 
 ## 编写TS程序
 
@@ -191,7 +191,7 @@ console.log(greeter(user))
 
 到这里，你已经对Typescript有了一个大致的印象，那么下一章让我们来一起学习Typescript的一些常用语法吧。
 
-# 四、使用webpack打包TS
+# 4.使用webpack打包TS
 
 ## 下载依赖
 
@@ -229,7 +229,7 @@ document.write('Hello Webpack TS!')
 </html>
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter1/04_webpack打包.html#build-webpack-config-js)build/webpack.config.js
+## build/webpack.config.js
 
 ```javascript
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
@@ -287,14 +287,14 @@ module.exports = {
 }
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter1/04_webpack打包.html#配置打包命令)配置打包命令
+## 配置打包命令
 
 ```text
 "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.js",
 "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js"
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter1/04_webpack打包.html#运行与打包)运行与打包
+## 运行与打包
 
 ```text
 yarn dev

@@ -1,6 +1,6 @@
-# 一、常用 Composition API
+# 1.常用 Composition API
 
-## 1.Vue3.0的响应式
+## Vue3.0的响应式
 
 **实现原理：**
 
@@ -34,7 +34,7 @@
 
      
 
-## 2.reactive对比ref
+## reactive对比ref
 
 1. 从定义数据角度对比：
 
@@ -56,7 +56,7 @@
 
 ​		**reactive**定义的数据：操作数据与读取数据，都不需要**.value**
 
-## 3.setup的两个注意点
+## setup的两个注意点
 
 - ​	执行的时机
 
@@ -74,7 +74,7 @@
 
 ​					emit：分发自定义事件的函数，相当于this.$emit。
 
-## 4.watch函数
+## watch函数
 
 - 与Vue2.x中watch配置功能一致
 
@@ -121,7 +121,7 @@
 
     
 
-## 5.watchEffect函数
+## watchEffect函数
 
 - watch的套路是：既要指明监视的属性，也要指明监视的回调
 
@@ -144,22 +144,22 @@
 
     
 
-## 6.自定义hook函数
+## 自定义hook函数
 
 - 什么是**hook**？ -------本质是一个函数，把setup函数中使用的Composition API进行了封装
 - 类似于vue2.x中的mixin
 - 自定义**hook**的优势：复用代码，让setup中的逻辑更清楚易懂
 
-## 7.toRef
+## toRef
 
 - 作用：创建一个ref对象，其value值只想另一个对象中的某个属性
 - 语法：const name = toRef(person,‘name’) 
 - 应用：要将响应式对象中的某个属性单独提供给外部使用时
 - 扩展   toRefs 与  toRef  功能一致，但可以批量创建多个ref对象，语法：toRefs(person)
 
-# 二、其它 Composition API
+# 2.其它 Composition API
 
-## 1.shallowReactive 与 shallowRef
+## shallowReactive 与 shallowRef
 
 - shallowReactive ：只处理对象最外层属性的响应式（浅响应式）。
 - shallowRef ：只处理基本数据类型的响应式，不进行对象的响应式处理
@@ -167,13 +167,13 @@
   - 如果有一个对象数据，解构比较深，但变化时知识外层属性变化 ===> shallowReactive
   - 如果有一个对象数据，后续功能不会修改该对象中的属性，而是生新的对象来替换 ===> shallowRef
 
-## 2.readonly 与 shallowReadonly
+## readonly 与 shallowReadonly
 
 - readonly：让一个响应式数据变为只读的（深只读）
 - shallowReadonly：让一个响应式数据变为只读的（浅只读）。
 - 应用场景：不希望数据被修改时。
 
-## 3.toRaw 与 markRaw
+## toRaw 与 markRaw
 
 - **toRaw**：
   
@@ -187,7 +187,7 @@
     1. 有些值不应该设置为响应式的，例如复杂的第三方类库等。
     2. 当渲染具有不可变数据源的大列表时，跳过响应式转换可以提高性能
 
-## 4.customRef
+## customRef
 
 - 作用：创建一个自定义的ref，并对其依赖项跟踪和更新触发进行显示控制
 
@@ -234,7 +234,7 @@
 
   
 
-## 5.provide 与 inject
+## provide 与 inject
 
 - 作用：实现**祖与后代组件**间通信
 
@@ -260,16 +260,16 @@
         }
         ```
 
-## 6.响应式数据的判断
+## 响应式数据的判断
 
 - isRef：检查一个值是否为ref对象
 - isReactive：检查一个对象是否为reactive创建的响应式代理
 - isReadonly：检查一个对象是否是由readonly创建的只读代理
 - isProxy：检查一个对象是否由reactive或者readonly方法创建的代理
 
-# 三、新的组件
+# 3.新的组件
 
-## 1.Fragment
+## Fragment
 
 - 在Vue2中：组件必须有一个根标签
 
@@ -279,7 +279,7 @@
 
   
 
-## 2.Teleport
+## Teleport
 
 - 什么时Teleport？-------Teleport是一种能够将我们的组件html结构移动到指定位置的技术
 
@@ -296,7 +296,7 @@
 
   
 
-## 3.Suspense
+## Suspense
 
 - 等待异步组件时渲染一些额外内容，让应用有更好的用户体验
 
@@ -329,9 +329,9 @@
 
     
 
-# 四、其他
+# 4.其他
 
-## 1.全局API的转移
+## 全局API的转移
 
 - vue2.x有许多全局API和配置
 

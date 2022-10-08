@@ -1,6 +1,6 @@
 # 1. 新组件
 
-## [#](https://24kcs.github.io/vue3_study/chapter5/01_新组件.html#_1-fragment-片断)1) Fragment(片断)
+##  Fragment(片断)
 
 - 在Vue2中: 组件必须有一个根标签
 - 在Vue3中: 组件可以没有根标签, 内部会将多个标签包含在一个Fragment虚拟元素中
@@ -13,7 +13,7 @@
 </template>
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter5/01_新组件.html#_2-teleport-瞬移)2) Teleport(瞬移)
+## Teleport(瞬移)
 
 - Teleport 提供了一种干净的方法, 让组件的html在父组件界面外的特定标签(很可能是body)下插入显示
 
@@ -100,7 +100,7 @@ export default {
 </script>
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter5/01_新组件.html#_3-suspense-不确定的)3) Suspense(不确定的)
+##  Suspense(不确定的)
 
 - 它们允许我们的应用程序在等待异步组件时渲染一些后备内容，可以让我们创建一个平滑的用户体验
 
