@@ -4,12 +4,12 @@
 
  https://composition-api.vuejs.org/zh/api.html
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/01_Composition API_常用部分.html#_1-setup)1) setup
+##  1)setup
 
 - 新的option, 所有的组合API函数都在此使用, 只在初始化时执行一次
 - 函数如果返回对象, 对象中的属性或方法, 模板中可以直接使用
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/01_Composition API_常用部分.html#_2-ref)2) ref
+##  2)ref
 
 - 作用: 定义一个数据的响应式
 - 语法: const xxx = ref(initValue):
@@ -65,7 +65,7 @@ export default {
 </script>
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/01_Composition API_常用部分.html#_3-reactive)3) reactive
+##  3)reactive
 
 - 作用: 定义多个数据的响应式
 - const proxy = reactive(obj): 接收一个普通对象然后返回该普通对象的响应式代理器对象
@@ -123,9 +123,9 @@ export default {
 </script>
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/01_Composition API_常用部分.html#_4-比较vue2与vue3的响应式-重要)4) 比较Vue2与Vue3的响应式(重要)
+##  4)比较Vue2与Vue3的响应式(重要)
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/01_Composition API_常用部分.html#vue2的响应式)vue2的响应式
+## 5)vue2的响应式
 
 - 核心:
   - 对象: 通过defineProperty对对象的已有属性值的读取和修改进行劫持(监视/拦截)
@@ -142,7 +142,7 @@ Object.defineProperty(data, 'count', {
   - 对象直接新添加的属性或删除已有属性, 界面不会自动更新
   - 直接通过下标替换元素或更新length, 界面不会自动更新 arr[1] = {}
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/01_Composition API_常用部分.html#vue3的响应式)Vue3的响应式
+## 6)Vue3的响应式
 
 - 核心:
   - 通过Proxy(代理): 拦截对data任意属性的任意(13种)操作, 包括属性值的读写, 属性的添加, 属性的删除等...
@@ -222,7 +222,7 @@ proxy.name = 'tom'
 </html>
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/01_Composition API_常用部分.html#_5-setup细节)5) setup细节
+## 7) setup细节
 
 - setup执行的时机
   - 在beforeCreate之前执行(一次), 此时组件对象还没有创建
@@ -355,7 +355,7 @@ export default defineComponent({
 </script>
 ```
 
-## 6) reactive与ref-细节
+## 8) reactive与ref-细节
 
 - 是Vue3的 composition API中2个最重要的响应式API
 - ref用来处理基本类型数据, reactive用来处理对象(递归深度响应式)
@@ -411,7 +411,7 @@ export default {
 </script>
 ```
 
-##  7) 计算属性与监视
+##  9) 计算属性与监视
 
 - computed函数:
   - 与computed配置功能一致
@@ -549,7 +549,7 @@ export default {
 </script>
 ```
 
-## 8) 生命周期
+## 10) 生命周期
 
 **vue2.x的生命周期**
 
@@ -695,7 +695,7 @@ export default {
 </script>
 ```
 
-## 09) 自定义hook函数
+## 11) 自定义hook函数
 
 - 使用Vue3的组合API封装的可复用的功能函数
 
@@ -863,7 +863,7 @@ export default {
 </script>
 ```
 
-## 10) toRefs
+## 12) toRefs
 
 > 需求：要将reactive对象中的所有属性解构出来，在html模板中单独使用
 
@@ -975,7 +975,7 @@ export default {
 
 # 2. Composition API(其它部分)
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/02_Composition API_其它部分.html#_1-shallowreactive-与-shallowref)1) shallowReactive 与 shallowRef
+## 1) shallowReactive 与 shallowRef
 
 - shallowReactive : 只处理了对象内最外层属性的响应式(也就是浅响应式)
 - shallowRef: 只处理了value的响应式, 不进行对象的reactive处理
@@ -1324,7 +1324,7 @@ function useDebouncedRef<T>(value: T, delay = 200) {
 </script>
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/02_Composition API_其它部分.html#_6-provide-与-inject)6) provide 与 inject
+## 6) provide 与 inject
 
 - provide`和`inject`提供依赖注入，功能类似 2.x 的`provide/inject
 - 实现跨层级组件(祖孙)间通信
@@ -1401,7 +1401,7 @@ export default {
 </script>
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/02_Composition API_其它部分.html#_7-响应式数据的判断)7) 响应式数据的判断
+## 7) 响应式数据的判断
 
 - isRef: 检查一个值是否为一个 ref 对象
 - isReactive: 检查一个对象是否是由 `reactive` 创建的响应式代理
@@ -1410,7 +1410,7 @@ export default {
 
 # 3. 手写组合API
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/03_手写组合API.html#_1-shallowreactive-与-reactive)1) shallowReactive 与 reactive
+## 1) shallowReactive 与 reactive
 
 ```js
 const reactiveHandler = {
@@ -1488,7 +1488,7 @@ proxy.b[0].x += 1
 proxy.c.x[0] += 1
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/03_手写组合API.html#_2-shallowref-与-ref)2) shallowRef 与 ref
+## 2) shallowRef 与 ref
 
 ```js
 /*
@@ -1553,7 +1553,7 @@ ref2.value.b[0].x++
 console.log(ref1, ref2)
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/03_手写组合API.html#_3-shallowreadonly-与-readonly)3) shallowReadonly 与 readonly
+## 3) shallowReadonly 与 readonly
 
 ```js
 const readonlyHandler = {
@@ -1622,7 +1622,7 @@ objReadOnly2.a = 1
 objReadOnly2.a.b = 2
 ```
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/03_手写组合API.html#_4-isref-isreactive-与-isreadonly)4) isRef, isReactive 与 isReadonly
+## 4) isRef, isReactive 与 isReadonly
 
 ```js
 /* 
@@ -1664,7 +1664,7 @@ console.log(isProxy(readonly({})))
 
 # 4. Composition API VS Option API
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/04_Composition VS Option.html#_1-option-api的问题)1) Option API的问题
+## 1) Option API的问题
 
 - 在传统的Vue OptionsAPI中，新增或者修改一个需求，就需要分别在data，methods，computed里修改 ，滚动条反复上下移动
 
@@ -1672,7 +1672,7 @@ console.log(isProxy(readonly({})))
 
 ![img](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5ac7e20d1784887a826f6360768a368~tplv-k3u1fbpfcp-watermark.image)
 
-## [#](https://24kcs.github.io/vue3_study/chapter4/04_Composition VS Option.html#_2-使用compisition-api)2) 使用Compisition API
+## 2) 使用Compisition API
 
 我们可以更加优雅的组织我们的代码，函数。让相关功能的代码更加有序的组织在一起
 
@@ -1682,4 +1682,3 @@ console.log(isProxy(readonly({})))
 
 ![img](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c421e5392504ecc94c222057dba338a~tplv-k3u1fbpfcp-watermark.image)
 
-![img](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.kaiu.net%2Fupload%2Fimage%2F20150619%2F20150619094719_2396.gif&refer=http%3A%2F%2Fwww.kaiu.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1667802623&t=bca25979a60596a9d05daa8a7d5cf757)
