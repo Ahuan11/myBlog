@@ -168,7 +168,7 @@ exports.a=10   //可以！！
   //安装包
   npm install / i  xxx
   //安装包并添加到依赖中
-  npm install  xxx --save 	//重要！！很常用
+  npm install xxx --save 	//重要！！很常用
   //删除包
   npm remove / r xxx
   //下载当前这个项目依赖的包
@@ -491,9 +491,7 @@ fs.open("hello.txt","w",function(err,fd){
    })
   ```
 
-### 同步文件读取
-
-### 异步文件读取
+### 
 
 ### 简单文件读取
 
@@ -604,3 +602,122 @@ rs.pipe(ws);
   ```
 
   
+
+### 路径拼接问题
+
+```javascript
+fs.readFile(__dirname + '/files/1.txt','utf8',function(err,data){
+	if(!err)
+	{
+		//读取成功
+        console.log('读取成功')
+	}
+	else
+		//读取失败
+        console.log(err.message)
+})
+```
+
+
+
+## path路径模块
+
+path模块是Node.js官方提供的、用来处理路径的模块。它提供了一系列的方法和属性，用来满足用户对路径的处理需求
+
+### **path.join()**方法
+
+- 使用**path.join()**方法，可以把多个路径片段拼接为完整的路径字符串，语法格式如下
+
+```javascript
+path.join([...paths])
+```
+
+- 参数解读：
+
+  - ...paths<string> 路径片段的序列
+  - 返回值：<string>
+
+- 代码示例
+
+  ```javascript
+  const pathStr = path.join('/a','/b/c','../','./d','e')   // ../会抵消上一级目录
+  console.log(pathStr) //输出	\a\b\d\e
+  
+  const pathStr2 = path.join(__dirname,'/files/1.txt')
+  console.log(pathStr2)
+  ```
+
+  > 今后凡是涉及到路径拼接的操作，都要使用**path.join()**方法进行处理。不要直接使用 ‘+’进行字符串的拼接
+
+### path.basename()方法
+
+- 使用**path.basename()**方法，可以获取路径中的最后一部分，经常通过这个方法获取路径中的文件名，语法格式如下：
+
+  ```
+  path.basename(path[,ext])
+  ```
+
+- 参数解读：
+
+  - path<string>必选参数，表示一个路径的字符串
+  - ext<string>可选参数，表示文件扩展名
+  - 返回：<string>表示路径中的最后一部分
+
+- 代码示例
+
+  ```javascript
+  const fpath = '/a/b/c/index.html'    //文件的存放路径
+  
+  var fullname = path.basename(fpath)
+  console.log(fullname)   //输出index.html
+  
+  var nameWithoutExt = path.basename(fpath,'.html')
+  console.log(nameWithoutExt)   //输出  index
+  ```
+
+  
+
+如果要在JavaScript代码中使用path模块来处理路径，则需要使用如下的方式先导入他
+
+```javascript
+const path = require('path')		//输出  当前文件所处目录\files\1.txt
+```
+
+### 获取路径中的文件扩展名
+
+- **path.extname()**的语法格式
+
+  该方法可以获取路径中的扩展名部分，语法格式如下：
+
+  ```
+  path.extname(path)
+  ```
+
+- 参数解读：
+
+  - path<string>必选参数，表示一个路径的字符串
+  - 返回：<string>返回得到的扩展名字符串
+
+- 代码实例：
+
+  ```javascript
+  const fpath = '/a/b/c/index.html'  //路径字符串
+  
+  const fext = path.extname(fpath)
+  console.log(fext)	//输出  .html
+  ```
+
+  
+
+## http模块
+
+- 什么是客户端、什么是服务器？
+  - 在网络节点中，负责消费资源的电脑，叫做客户端，负责对外提供网络资源的电脑，叫做服务器
+- http模块是Node.js官方提供的、用来创建web服务器的模块。通过http模块提供的**http.createServe()**方法，就能方便的把一台普通的电脑，变成一台Web服务器，从而对外提供Web资源服务。
+- 如果希望使用http模块创建Web服务器，则需要导入它：                                                                                                                                                
+
+```
+const http = require('http')
+```
+
+- 服务器和普通电脑的区别在于，服务器上安装了Web服务器软件，例如：**IIS、APache**等。通过安装这些服务器软件，就能把一台普通的电脑变成一台Web服务器

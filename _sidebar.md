@@ -22,4 +22,9 @@
     * Node.JS
         * [基本命令基础](Node/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%9F%BA%E7%A1%80.md)
         * [Node.js基础](Node/Node.js%E5%9F%BA%E7%A1%80.md)
+    * Promise
+        * [快速上手](Promise/Promise%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8.md)
+    * 算法
+        * [链表](算法/%E9%93%BE%E8%A1%A8.md)
+        * [二叉树](算法/%E4%BA%8C%E5%8F%89%E6%A0%91.md)
         
