@@ -7,6 +7,8 @@
         * [Vue3快速上手](Vue3/Vue3%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B.md)
         * [Composition-API(常用部分)](Vue3/Composition%20API.md)
         * [Vue3基础知识](Vue3/Vue3%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
+        * [其他新组合和API](Vue3/%E5%85%B6%E5%AE%83%E6%96%B0%E7%BB%84%E5%90%88%E5%92%8CAPI.md)
+        * [Vue2和Vue3相比(面试题)](Vue3/vue2%E7%9B%B8%E6%AF%94vue3.md)
     * 项目实战
         * [尚品汇](%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/%E5%B0%9A%E5%93%81%E6%B1%87.md)
     * Linux与Git
@@ -14,6 +16,7 @@
     * javascript
         * [DOM以及BOM](javascript/DOM%20%E4%BB%A5%E5%8F%8ABOM.md)
         * [js基础语法](javascript/js%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.md)
+        * [数据结构](javascript/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
     * CSS
         * [css学习](css/CSS%E5%AD%A6%E4%B9%A0.md)
     * Typescript
@@ -24,7 +27,12 @@
         * [Node.js基础](Node/Node.js%E5%9F%BA%E7%A1%80.md)
     * Promise
         * [快速上手](Promise/Promise%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8.md)
+    * Webpack
+        * [基础知识](Webpack/Webpack%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
+    * 八股
+        * [JavaScript面试题](八股/Javascript.md)
     * 算法
         * [链表](算法/%E9%93%BE%E8%A1%A8.md)
         * [二叉树](算法/%E4%BA%8C%E5%8F%89%E6%A0%91.md)
+        * [堆/栈/队列](算法/%E5%A0%86%E6%A0%88%E9%98%9F%E5%88%97.md)
         
