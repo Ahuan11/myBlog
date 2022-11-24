@@ -27,6 +27,8 @@
         * [Node.js基础](Node/Node.js%E5%9F%BA%E7%A1%80.md)
     * Promise
         * [快速上手](Promise/Promise%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8.md)
+    * AJAX
+        * [ajax基础](AJAX/ajax%E5%9F%BA%E7%A1%80.md)
     * Webpack
         * [基础知识](Webpack/Webpack%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
     * 八股
@@ -35,4 +37,6 @@
         * [链表](算法/%E9%93%BE%E8%A1%A8.md)
         * [二叉树](算法/%E4%BA%8C%E5%8F%89%E6%A0%91.md)
         * [堆/栈/队列](算法/%E5%A0%86%E6%A0%88%E9%98%9F%E5%88%97.md)
+    * 正则表达式
+        * [基础](正则表达式/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
         
